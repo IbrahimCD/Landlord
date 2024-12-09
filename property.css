@@ -1,0 +1,304 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light gray background */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #2e4053; /* Deep blue header */
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Main Content Styles */
+main {
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+form label {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+form input, form select, form textarea, form button {
+    display: block;
+    margin: 0.75rem 0;
+    padding: 0.8rem;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f8f8fa;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #0056b3; /* Highlighted border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+}
+
+form button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #004099;
+    transform: scale(1.05);
+}
+
+form button:active {
+    background-color: #003070;
+    transform: scale(1);
+}
+
+/* Add Property Section */
+#addPropertySection h2,
+#editPropertySection h2 {
+    color: #0056b3;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* Edit Property Modal */
+
+#editPropertySection {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    z-index: 1000;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.4s ease-in-out;
+    overflow-y: auto;
+    max-height: 90%;
+}
+
+#editPropertySection button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#editPropertySection button.save-button {
+    background-color: #0056b3; /* Blue save button */
+    color: white;
+}
+
+#editPropertySection button.save-button:hover {
+    background-color: #004099;
+}
+
+#editPropertySection button.delete-button {
+    background-color: #dc3545; /* Red delete button */
+    color: white;
+}
+
+#editPropertySection button.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Property List Styles */
+#propertyList {
+    margin-top: 1rem;
+}
+
+.property-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.property-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.property-card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #0056b3;
+    text-transform: capitalize;
+}
+
+.property-card p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+/* Buttons Inside Property Cards */
+.property-card button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Edit Button */
+.property-card .edit-button {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+.property-card .edit-button:hover {
+    background-color: #218838;
+}
+
+/* Delete Button */
+.property-card .delete-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+.property-card .delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Add Property Button Styling */
+#toggleAddPropertyButton {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* Blue button */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#toggleAddPropertyButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+#toggleAddPropertyButton:active {
+    background-color: #003f7f; /* Even darker on click */
+    transform: translateY(0); /* Reset lift effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+}
+
+/* Search Section */
+#searchPropertySection h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+#searchPropertySection input {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#searchPropertySection button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#searchPropertySection button:hover {
+    background-color: #0056b3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    form input, form select, form textarea, form button {
+        font-size: 0.9rem;
+    }
+
+    .property-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .property-card button {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Management</title>
+    <link rel="stylesheet" href="css/property.css">
+    <link rel="stylesheet" href="css/sidebar.css"> <!-- Sidebar styles -->
+</head>
+<body>
+    <div id="sidebar-container"></div> <!-- Sidebar will be dynamically loaded here -->
+
+    <header>
+        <h1>LANDLORD</h1>
+    </header>
+    <main>
+        <!-- Button to toggle Add Property Form -->
+        <button id="toggleAddPropertyButton" class="toggle-button">Add Property</button>
+
+        <!-- Form to Add Property -->
+        <section id="addPropertySection" style="display: none;">
+            <h2>Add Property</h2>
+            <form id="addPropertyForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter property name" required>
+            
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Enter property address" required>
+
+                <label for="size">Size (sq ft):</label>
+                <input type="number" id="size" name="size" placeholder="Enter property size" required>
+
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="" disabled selected>Select property type</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Commercial">Commercial</option>
+                </select>
+
+                <label for="valuation">Valuation ($):</label>
+                <input type="number" id="valuation" name="valuation" placeholder="Enter property valuation" required>
+                <label for="caretaker">Caretaker Name:</label>
+                <input type="text" id="caretaker" name="caretaker" placeholder="Enter caretaker name">
+            
+                <label for="phoneNumber">Caretaker Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter caretaker phone number">
+            
+                <label for="agreementDetails">Agreement Details:</label>
+                <textarea id="agreementDetails" name="agreementDetails" placeholder="Enter agreement details" rows="4"></textarea>
+            
+                <button type="submit">Add Property</button>
+            </form>
+        </section>
+
+        <!-- Edit Property Form (Hidden initially) -->
+        <section id="editPropertySection" style="display: none;">
+            <h2>Edit Property</h2>
+            <form id="editPropertyForm">
+                <input type="hidden" id="editPropertyId">
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" name="name" required>
+            
+                <label for="editAddress">Address:</label>
+                <input type="text" id="editAddress" name="address" required>
+
+                <label for="editSize">Size (sq ft):</label>
+                <input type="number" id="editSize" name="size" required>
+
+                <label for="editType">Type:</label>
+                <select id="editType" name="type" required>
+                    <option value="Residential">Residential</option>
+                    <option value="Commercial">Commercial</option>
+                </select>
+
+                <label for="editValuation">Valuation ($):</label>
+                <input type="number" id="editValuation" name="valuation" required>
+                
+                <label for="editCaretaker">Caretaker Name:</label>
+                <input type="text" id="editCaretaker" name="caretaker">
+            
+                <label for="editPhoneNumber">Caretaker Phone Number:</label>
+                <input type="tel" id="editPhoneNumber" name="phoneNumber">
+            
+                <label for="editAgreementDetails">Agreement Details:</label>
+                <textarea id="editAgreementDetails" name="agreementDetails" rows="4"></textarea>
+            
+                <button type="submit">Save Changes</button>
+                <button type="button" id="deletePropertyButton">Delete Property</button>
+                <button type="button" id="cancelEditButton">Cancel</button>
+            </form>
+        </section>
+
+        <!-- Search Property -->
+        <section id="searchPropertySection">
+            <h2>Search Properties</h2>
+            <input type="text" id="searchInput" placeholder="Enter property name to search" required>
+            <button id="searchButton">Search</button>
+        </section>
+
+        <!-- List of Properties -->
+        <section id="propertyListSection">
+            <h2>Property List</h2>
+            <div id="propertyList">No properties found. Use the search or add a property above.</div>
+        </section>
+    </main>
+
+    <script>
+        // Load the sidebar HTML dynamically
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar-container').innerHTML = data;
+
+                    // Sidebar functionality
+                    const sidebar = document.querySelector('.sidebar');
+                    const toggleButton = document.querySelector('.menu-toggle');
+
+                    // Sidebar toggle button
+                    toggleButton.addEventListener('click', () => {
+                        sidebar.classList.toggle('collapsed');
+                    });
+
+                    // Ensure sidebar starts open for larger screens
+                    const mediaQuery = window.matchMedia('(min-width: 768px)');
+                    if (mediaQuery.matches) {
+                        sidebar.classList.remove('collapsed');
+                    }
+
+                    mediaQuery.addEventListener('change', () => {
+                        if (mediaQuery.matches) {
+                            sidebar.classList.remove('collapsed');
+                        }
+                    });
+                })
+                .catch(err => console.error("Error loading sidebar:", err));
+        });
+    </script>
+    <script src="js/property.js"></script>
+    <script src="js/sidebar.js"></script>
+</body>
+</html>

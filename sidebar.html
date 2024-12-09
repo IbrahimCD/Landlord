@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="sidebar">
+    <div class="sidebar-header">
+       
+        <button class="menu-toggle" aria-label="Toggle Sidebar">☰</button>
+    </div>
+    <ul class="menu">
+        <li class="menu-item">
+            <a href="/dashboard" class="menu-link">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/income" class="menu-link">
+                <i class="fas fa-money-bill"></i>
+                <span>Income</span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/receipt" class="menu-link">
+                <i class="fas fa-receipt"></i>
+                <span>Receipt</span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/agreement" class="menu-link">
+                <i class="fas fa-file-contract"></i>
+                <span>Agreement</span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/accounts" class="menu-link">
+                <i class="fas fa-chart-bar"></i>
+                <span>Accounts</span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="property.html" class="menu-link">
+                <i class="fas fa-building"></i>
+                <span>Property</span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/unit" class="menu-link">
+                <i class="fas fa-door-open"></i>
+                <span>Unit</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sidebar = document.querySelector(".sidebar");
+        const toggleButton = document.querySelector(".menu-toggle");
+
+        if (toggleButton) {
+            toggleButton.addEventListener("click", () => {
+                sidebar.classList.toggle("collapsed");
+
+                if (sidebar.classList.contains("collapsed")) {
+                    localStorage.setItem("sidebarState", "collapsed");
+                } else {
+                    localStorage.setItem("sidebarState", "open");
+                }
+            });
+        }
+    });
+</script>
